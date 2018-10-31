@@ -1,0 +1,32 @@
+<div id="mario-chat">
+    <h2>Chat</h2>
+    <div id="chat-window">
+        <div id="output">
+<p *ngFor="let message of list ">
+    {{message.name}}:
+  {{message.message}}
+  <img src="assets/del.png" (click)="deleteBtn(message._id)" >
+
+</p>
+
+<p *ngIf="msg" >{{msg}}</p>
+        </div>
+        <div id="feedback">
+
+        </div>
+    </div>
+
+
+      <form class="example-form" [formGroup]="chatForm">
+        <mat-form-field class="example-full-width">
+          <input  id="name" matInput placeholder="add name" formControlName="name" >
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input id="message" matInput placeholder="add message" formControlName="message" (keypress)="doSomething()" >
+        </mat-form-field>
+
+    <button id="send"  (click)="sendmessage()">Send</button>
+  </form>
+
+  </div>
